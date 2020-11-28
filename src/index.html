@@ -37,24 +37,24 @@
                                 </div>
                             </div>
                         </li>
-                        <li style="margin-bottom: 10px;"> 
+                        <li style="margin-bottom: 10px;">
                             <button id="EA_btn"> Insert Establishment Admin </button>
                             <div id="EA_popup" class="popup">
                                 <div class="popup_content">
                                     <span class="EA_close">
                                         &times;
                                     </span>
-                                    <form action="insert_est_admin.php" method="post">
-                                        <label for="Admin_ID">Enter Admin ID: </label>
-                                        <input type="text" id="Admin_ID" name="Admin_ID" /><br />
-                                        <label for="Admin_Name">Enter Admin Name: </label>
-                                        <input type="text" id="Admin_Name" name="Admin_Name" /><br />
-                                        <label for="Admin_Phone">Enter Admin Phone Number: </label>
-                                        <input type="text" id="Admin_Phone" name="Admin_Phone" /><br />
-                                        <label for="Admin_Email">Enter Admin Email: </label>
-                                        <input type="text" id="Admin_Email" name="Admin_Email" /><br />
-                                        <label for="Est_ID">Enter Establishment ID: </label>
-                                        <input type="text" id="Est_ID" name="Est_ID" /><br />
+                                    <form action="../src/controllers/insert/insert_est_Admin.controller.php" method="post">
+                                        <label for="Admin_Id">Enter Admin ID: </label>
+                                        <input type="text" id="Admin_Id" name="Admin_Id" /><br />
+                                        <label for="EAName">Enter Admin Name: </label>
+                                        <input type="text" id="EAName" name="EAName" /><br />
+                                        <label for="Phone">Enter Admin Phone Number: </label>
+                                        <input type="text" id="Phone" name="Phone" /><br />
+                                        <label for="EAEmail">Enter Admin Email: </label>
+                                        <input type="text" id="EAEmail" name="EAEmail" /><br />
+                                        <label for="Est_Id">Enter Establishment ID: </label>
+                                        <input type="text" id="Est_Id" name="Est_Id" /><br />
                                         <button type="submit">ADD New Admin</button>
                                     </form>
                                 </div>
@@ -172,7 +172,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li style="margin-bottom: 10px;"> 
+                        <li style="margin-bottom: 10px;">
                             <button id="update_EA_btn"> Update Establishment Admin Information </button>
                             <div id="update_EA_popup" class="popup">
                                 <div class="popup_content">
