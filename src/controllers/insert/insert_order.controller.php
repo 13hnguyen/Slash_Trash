@@ -8,13 +8,16 @@
     }
     else 
     {
-        $Cust_Id = filter_input(INPUT_POST, 'Cust_Id');
-        $CName = filter_input(INPUT_POST, 'CName');
-        $Cust_Pts = filter_input(INPUT_POST, 'Cust_Pts');
-        $CEmail = filter_input(INPUT_POST, 'CEmail');
-        $Age = filter_input(INPUT_POST, 'Age');
+        // Change to Order values
 
-        if($query = "INSERT INTO CUSTOMER (Cust_Id, CName, Cust_Pts, CEmail, Age) VALUES (:Cust_Id, :CName, :Cust_Pts, :CEmail, :Age)")
+        $Order_Id = filter_input(INPUT_POST, 'ORDER_ID');
+        $Pts = filter_input(INPUT_POST, 'Pts');
+        $Trans_Date = filter_input(INPUT_POST, 'Trans_Date');
+        $Cust_Id = filter_input(INPUT_POST, 'Cust_Id');
+        $Item_Id = filter_input(INPUT_POST, 'Item_Id');
+        $Est_Id = filter_input(INPUT_POST, 'Est_Id');
+
+        if($query = "INSERT INTO ORDERS (ORDER_ID, Pts, Trans_Date, Cust_Id, Item_Id, Est_Id) VALUES (:ORDER_ID, :Pts, :Trans_Date, :Cust_Id, :Item_Id, :Est_Id)")
         {    
             if($query==null)
             {      
@@ -24,7 +27,7 @@
             else
             {
                 $stmt = $conn->prepare($query);  
-                $stmt->execute(array(':Cust_Id' => $Cust_Id, ':CName' => $CName, ':Cust_Pts' => $Cust_Pts, ':CEmail' => $CEmail, ':Age' => $Age));
+                $stmt->execute(array(':ORDER_ID' => $ORDER_ID, ':Pts' => $Pts, ':Trans_Date' => $Trans_Date, ':Cust_Id' => $Cust_Id, ':Item_Id' => $Item_Id, ':Est_Id' => $Est_Id));
                 $rows = $stmt->fetchALL(PDO::FETCH_ASSOC);
                 if($stmt)
                     echo 'New record inserted successfully.';
@@ -34,6 +37,7 @@
                 }
             }
         }
+
     }
-    echo '<p><a href="javascript:history.go(-1)" title="return">&laquo; Return to Slash-Trash Homepage</a></p>';
+    echo '<p><a href="javascript:history.go(-1)" title="return">&laquo; Return to Slash-Trash HomepItem_Id</a></p>';    
 ?>

@@ -1,38 +1,46 @@
 body {
-    background-color: darkseagreen;
+  background-color: darkseagreen;
+  width: inherit;
+  height: inherit;
 }
 
 h1 {
-    text-align: center;
-    color: darkslategray;
+  text-align: center;
+  color: darkslategray;
 }
 
+mark {
+  background-color: transparent;
+  color: red;
+}
+
+
 .split {
-    height: 100%;
-    width: 50%;
-    position: fixed;
-    z-index: 1;
-    top: 70px;
-    overflow-x: hidden;
-    padding-top: 20px;
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 70px;
+  overflow-x: hidden;
   }
 
   .logo {
-      display: flex;
-      justify-content: left;
+    border-left-width: 10px;
+    float: center;
+    padding-top: 50px;
   }
 
   .left {
     text-align: center;
     left: 0;
-    background-color: tan;
+    background-color: #ACDF87;
     color: darkslategray;
   }
   
   .right {
-    right: 0;
     text-align: center;
-    background-color: #ACDF87;
+    right: 0;
+    background-color: tan;
     color: darkslategray;
   }
 
@@ -56,6 +64,8 @@ h1 {
     height: 40%;
 }
 
+.about_close,
+.howto_close,
 .cust_close,
 .EA_close,
 .Est_close,
@@ -73,6 +83,8 @@ h1 {
     font-weight: bold;
 }
 
+.about_close:hover,
+.howto_close:hover,
 .cust_close:hover,
 .EA_close:hover,
 .Est_close:hover,
@@ -80,12 +92,23 @@ h1 {
 .item_close:hover,
 .visit_close:hover,
 .update_cust_close:hover,
+.update_EA_close:hover,
+.update_Est_close:hover,
+.update_order_close:hover,
+.update_item_close:hover,
+.about_close:focus,
+.howto_close:focus,
 .cust_close:focus,
 .EA_close:focus,
 .Est_close:focus,
 .order_close:focus,
 .item_close:focus,
-.visit_close:focus {
+.visit_close:focus,
+.update_cust_close:focus,
+.update_EA_close:focus,
+.update_Est_close:focus,
+.update_order_close:focus,
+.update_item_close:focus {
     color: darkslategray;
     text-decoration: none;
     cursor: pointer;
