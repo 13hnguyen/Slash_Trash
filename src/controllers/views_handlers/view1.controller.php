@@ -34,7 +34,7 @@
             if($data)
             {
                 echo "<Br /><b>";
-                echo "Customer, ".$data[1]."(".$data[0].") have gained ".$data[2].
+                echo "Customer, ".$data[1]."(".$data[0].") has gained ".$data[2].
                 " points between ".$start." and ".$end;
                 echo "</b>";
             }

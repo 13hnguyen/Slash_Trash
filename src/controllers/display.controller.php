@@ -37,7 +37,7 @@
                 $rows = array(
                     0 => "Est_Id",
                     1 => "EName",
-                    2 => "Address",
+                    2 => "Est_Address",
                     3 => "Waste_Pts",
                     4 => "Type"
                 );
@@ -97,5 +97,6 @@
             echo "No Records Available";
                     die(); 
         }}
-    }    
+    }
+    echo '<p><a href="javascript:history.go(-1)" title="return">&laquo; Return to Slash-Trash Homep</a></p>';    
 ?>
