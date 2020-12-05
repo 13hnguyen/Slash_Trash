@@ -12,6 +12,17 @@
         $start = filter_input(INPUT_POST, 'from_date');
         $end = filter_input(INPUT_POST, 'to_date');
         
+        $custom_view = "CREATE OR REPLACE VIEW TRANSACTION_INFO(Cust_Id, CName, Cust_Pts, Est_Id, EName, Order_Id, Pts, Trans_Date, Item_Id, IName)
+        AS SELECT   C.Cust_Id, C.CName, C.Cust_Pts, E.Est_Id, E.EName, O.Order_Id, O.Pts, O.Trans_Date, I.Item_Id, I.IName
+        FROM CUSTOMER AS C, ESTABLISHMENT AS E, ORDERS AS O, REUSABLE_ITEM AS I
+        WHERE C.Cust_Id = O.Cust_Id AND I.Item_Id = O.Item_Id AND E.Est_Id = O.Est_Id;";
+        echo "<br>".$custom_view;
+        if ($conn->query($custom_view) == TRUE) {
+            echo "<br> TRANSACTION_INFO VIEW is successfully updated.";
+        } else {
+            echo "Error: " . $custom_view . "<br>" . $conn->error;
+        }
+        
         $query = "SELECT DISTINCT Cust_Id, CName, SUM(Pts)
                 FROM TRANSACTION_INFO
                 WHERE Cust_Id = \"".$cust_id."\" AND Trans_Date >= \"".$start."\" AND Trans_Date <= \"".$end."\"
