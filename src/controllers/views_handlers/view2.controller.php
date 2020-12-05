@@ -27,5 +27,5 @@
             ".$conn->error;
         }
     }
-    echo '<p><a href="javascript:history.go(-1)" title="return">&laquo; Return to Slash-Trash HomepType</a></p>';
+    echo '<p><a href="javascript:history.go(-1)" title="return">&laquo; Return to Slash-Trash Homepage</a></p>';
 ?>
