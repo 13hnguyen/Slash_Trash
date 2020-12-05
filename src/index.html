@@ -112,7 +112,7 @@
                                     <label for="Pts">Enter Points : </label>
                                     <input type="number" id="Pts" name="Pts" /><br /><br />
                                     <label for="Trans_Date">Select Date <mark>*</mark> : </label>
-                                    <input type="text" id="Trans_Date" name="Trans_Date" required /><br /><br />
+                                    <input type="date" id="Trans_Date" name="Trans_Date" required /><br /><br />
                                     <label for="Cust_Id">Enter Customer ID <mark>*</mark> : </label>
                                     <input type="text" id="Cust_Id" name="Cust_Id" required /><br /><br />
                                     <label for="Item_Id">Enter Item ID : </label>
@@ -249,8 +249,8 @@
                     <form action="../src/controllers/views_handlers/view2.controller.php" method="post">
                         <label for="Est_Id">Enter Establishment ID <mark>*</mark> : </label>
                         <input type="text" id="Est_Id" name="Est_Id" required /><br /><br />
-                        <label for="visit_date">Visit Date (yyyy-dd-mm) <mark>*</mark> : </label>&nbsp;
-                        <input type="text" id="visit_date" name="visit_date" required /><br /><br />
+                        <label for="visit_date">Visit Date <mark>*</mark> : </label>&nbsp;
+                        <input type="date" id="visit_date" name="visit_date" required /><br /><br />
                         <label for="points">Bonus Points : </label>&nbsp;
                         <input type="number" id="points" name="points" value="0"/><br /><br />
                         <button type="submit">ADD</button>
@@ -333,10 +333,10 @@
                     <form action="../src/controllers/views_handlers/view1.controller.php" method="post">
                         <label for="Cust_Id">Enter Customer ID <mark>*</mark> : </label>
                         <input type="text" id="Cust_Id" name="Cust_Id" required /><br /><br />
-                        <label for="Date">From Date (yyyy-dd-mm) <mark>*</mark> : </label>&nbsp;
-                        <input type="text" id="from_date" name="from_date" required />&nbsp;&nbsp;&nbsp;
-                        <label for="Date">To Date (yyyy-dd-mm) <mark>*</mark> : </label>&nbsp;
-                        <input type="text" id="to_date" name="to_date" required /><br /><br />
+                        <label for="Date">From Date <mark>*</mark> : </label>&nbsp;
+                        <input type="date" id="from_date" name="from_date" required />&nbsp;&nbsp;&nbsp;
+                        <label for="Date">To Date <mark>*</mark> : </label>&nbsp;
+                        <input type="date" id="to_date" name="to_date" required /><br /><br />
                         <button type="submit">View</button>
                     </form>
                 </div>

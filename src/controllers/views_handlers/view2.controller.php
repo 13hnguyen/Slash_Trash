@@ -1,4 +1,4 @@
-<?php
+    <?php
     require_once '../../utils/connect_database.php';
 
     // Check connection
