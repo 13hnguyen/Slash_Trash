@@ -13,7 +13,7 @@
             <div class="split left">
                 <ul style="list-style-type: none;">
                     <button style="background-color: darkslategray; color: aliceblue; font-size: 20px; width: 50%;" id="about_btn">
-                        ABOUT US 
+                        ABOUT US
                     </button><br /><br />
                     <div id="about_popup" class="popup">
                         <div class="popup_content">
@@ -21,7 +21,7 @@
                                 &times;
                             </span>
                             <h3><b>!!! ABOUT US !!!</b></h3>
-                            <p>Slash Trash is a green company that is dedicated to reduces the trash produced by the food places
+                            <p>Slash Trash is a green company that is dedicated to reducing trash produced by the food places
                                 on a daily basis. It promotes the uses of reusable items by providing incentives to customers. We keep
                                 track of the reusuable items used, points gained by the customers, and also the waste points saved by
                                 the resturants.
@@ -111,14 +111,14 @@
                                     <input type="text" id="Order_Id" name="Order_Id" required /><br /><br />
                                     <label for="Pts">Enter Points : </label>
                                     <input type="number" id="Pts" name="Pts" /><br /><br />
-                                    <label for="Date">Select Date <mark>*</mark> : </label>
-                                    <input type="date" id="Date" name="Date" required /><br /><br />
+                                    <label for="Trans_Date">Select Date <mark>*</mark> : </label>
+                                    <input type="text" id="Trans_Date" name="Trans_Date" required /><br /><br />
                                     <label for="Cust_Id">Enter Customer ID <mark>*</mark> : </label>
                                     <input type="text" id="Cust_Id" name="Cust_Id" required /><br /><br />
                                     <label for="Item_Id">Enter Item ID : </label>
                                     <input type="text" id="Item_Id" name="Item_Id" /><br /><br />
                                     <label for="Est_Id">Enter Establishment ID <mark>*</mark> : </label>
-                                    <input type="number" id="Est_Id" name="Est_Id" required /><br /><br />
+                                    <input type="text" id="Est_Id" name="Est_Id" required /><br /><br />
                                     <button type="submit">ADD New Order</button>
                                 </form>
                             </div>
@@ -245,21 +245,21 @@
                     </div>
                 </div><br /><br />
                 <div id="view2">
-                    <h2>ADD BONUS POINTS TO CUSTOMER FOR THIS VISIT:</h2>
+                    <h2>Add <mark>BONUS</mark> Points To Customer For This Visit:</h2>
                     <form action="../src/controllers/views_handlers/view2.controller.php" method="post">
                         <label for="Est_Id">Enter Establishment ID <mark>*</mark> : </label>
                         <input type="text" id="Est_Id" name="Est_Id" required /><br /><br />
-                        <label for="Date">Visit Date <mark>*</mark> : </label>&nbsp;
-                        <input type="date" id="visit_date" name="visit_date" required /><br /><br />
+                        <label for="visit_date">Visit Date (yyyy-dd-mm) <mark>*</mark> : </label>&nbsp;
+                        <input type="text" id="visit_date" name="visit_date" required /><br /><br />
                         <label for="points">Bonus Points : </label>&nbsp;
                         <input type="number" id="points" name="points" value="0"/><br /><br />
                         <button type="submit">ADD</button>
                     </form>
                 </div>
             </div>
-            <div class="split right">
-                <button style="background-color: darkslategray; color: aliceblue; font-size: 20px; width: 50%;" id="howto_btn"> 
-                    HOW TO USE SLASH-TRASH? 
+            <div class="split right"><br />
+                <button style="background-color: darkslategray; color: aliceblue; font-size: 20px; width: 50%;" id="howto_btn">
+                    HOW TO USE SLASH-TRASH?
                 </button>
                 <ul style="list-style-type: none;">
                     <div id="howto_popup" class="popup">
@@ -270,28 +270,28 @@
                             <h3><b>How to use?</b></h3>
                             <ul>
                                 <li>
-                                    In Adding New Data Section, find the table you want to add record to and 
-                            click "Insert 'Table_Name'" and fill out the fields and click Add.
+                                    In the "Adding New Data" Section, find the table you want to add a record to and
+                            click "Insert 'Table_Name'", fill out the fields then click Insert.
                                 </li>
                                 <li>
-                                    In Update Data Section, find the table you want to update and 
-                            click "Update 'Table_Name'" and fill out the fields and click Update.
+                                    In the "Update Data Section", find the table you want to update,
+                            click "Update 'Table_Name'", then fill out the fields and click Update.
                                 </li>
                                 <li>
-                                    To Display data, select table from dropdown, and hit display.
+                                    To Display data, select the table from dropdown, and hit "Display Data".
                                 </li>
                                 <li>
-                                    To delete record, select table from dropdown, provide Id of the entity, and clisk delete
+                                    To delete a record, select the table from dropdown, provide Id of the entity, and click the "Delete"
                                     button.
                                 </li>
                                 <li>
-                                    To find how much points a particluar customer gained from the given range of dates, just 
-                                    provide the customer ID, the beinging dtae and the end date. Then click View.
+                                    To find how many points a particular customer has gained from the given range of dates, just
+                                    provide the customer ID, the beginning date, the end date, then click "View".
                                 </li>
                                 <li>
-                                    Last but not the least, to add bonus point to customers who visited a particular Establishment
-                                    on a particluar date, provide Establishment ID the customer visited, the date and the bonus points
-                                    to be added. Finally click ADD to update the original table.
+                                    Last but not least, to add bonus point(s) to customers who visited a particular Establishment
+                                    on a particular date, provide Establishment ID of the Establishment, the date, and the bonus points
+                                    to be added. Finally, click "ADD" to update the original table.
                                 </li>
                         </ul>
                         </div>
@@ -329,14 +329,14 @@
                     </form>
                 </div><br />
                 <div id="view1">
-                    <h2>How much this customer gained?:</h2>
+                    <h2>How Many Points Has This Customer Gained?</h2>
                     <form action="../src/controllers/views_handlers/view1.controller.php" method="post">
                         <label for="Cust_Id">Enter Customer ID <mark>*</mark> : </label>
                         <input type="text" id="Cust_Id" name="Cust_Id" required /><br /><br />
-                        <label for="Date">From Date <mark>*</mark> : </label>&nbsp;
-                        <input type="date" id="from_date" name="from_date" required />&nbsp;&nbsp;&nbsp;
-                        <label for="Date">To: <mark>*</mark> : </label>&nbsp;
-                        <input type="date" id="to_date" name="to_date" required /><br /><br />
+                        <label for="Date">From Date (yyyy-dd-mm) <mark>*</mark> : </label>&nbsp;
+                        <input type="text" id="from_date" name="from_date" required />&nbsp;&nbsp;&nbsp;
+                        <label for="Date">To Date (yyyy-dd-mm) <mark>*</mark> : </label>&nbsp;
+                        <input type="text" id="to_date" name="to_date" required /><br /><br />
                         <button type="submit">View</button>
                     </form>
                 </div>
