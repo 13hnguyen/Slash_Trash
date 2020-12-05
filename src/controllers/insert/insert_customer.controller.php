@@ -1,11 +1,5 @@
 <?php
-    $host = "localhost:3306";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "SLASHTRASH";
-
-    // Create connection
-    $conn = new PDO('mysql:host='.$host.';dbname='.$dbname, $dbusername, $dbpassword);
+    require_once '../../utils/connect_database.php';
 
     // Check connection
     if(!$conn) 
@@ -20,7 +14,7 @@
         $CEmail = filter_input(INPUT_POST, 'CEmail');
         $Age = filter_input(INPUT_POST, 'Age');
 
-        if($query = "INSERT INTO customer (Cust_Id, CName, Cust_Pts, CEmail, Age) VALUES (:Cust_Id, :CName, :Cust_Pts, :CEmail, :Age)")
+        if($query = "INSERT INTO CUSTOMER (Cust_Id, CName, Cust_Pts, CEmail, Age) VALUES (:Cust_Id, :CName, :Cust_Pts, :CEmail, :Age)")
         {    
             if($query==null)
             {      

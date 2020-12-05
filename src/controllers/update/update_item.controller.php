@@ -1,11 +1,5 @@
 <?php
-    $host = "localhost:3306";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "SLASHTRASH";
-
-    // Create connection
-    $conn = new PDO('mysql:host='.$host.';dbname='.$dbname, $dbusername, $dbpassword);
+    require_once '../../utils/connect_database.php';
 
     // Check connection
     if(!$conn) 
@@ -14,12 +8,10 @@
     }
     else 
     {
-        // Change to Reusable Item values
-        /*
-        $Cust_Id = filter_input(INPUT_POST, 'Cust_Id');
-        $Cust_Pts = filter_input(INPUT_POST, 'Cust_Pts');
+        $Item_Id = filter_input(INPUT_POST, 'Item_Id');
+        $Pt_Val = filter_input(INPUT_POST, 'Pt_Val');
 
-        if($query = "UPDATE customer SET Cust_Pts = :Cust_Pts WHERE Cust_Id = :Cust_Id")
+        if($query = "UPDATE REUSABLE_ITEM SET Pt_Val = :Pt_Val WHERE Item_Id = :Item_Id")
         {    
             if($query==null)
             {      
@@ -29,7 +21,7 @@
             else
             {
                 $stmt = $conn->prepare($query);  
-                $stmt->execute(array(':Cust_Id' => $Cust_Id, ':Cust_Pts' => $Cust_Pts));
+                $stmt->execute(array(':Item_Id' => $Item_Id, ':Pt_Val' => $Pt_Val));
                 $rows = $stmt->fetchALL(PDO::FETCH_ASSOC);
                 if($stmt)
                     echo 'Record updated successfully.';
@@ -39,7 +31,7 @@
                 }
             }
         }
-        */
+
     }
     echo '<p><a href="javascript:history.go(-1)" title="return">&laquo; Return to Slash-Trash Homepage</a></p>';    
 ?>

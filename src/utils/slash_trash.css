@@ -10,9 +10,10 @@ h1 {
 }
 
 mark {
-  background-color: cornsilk;
+  background-color: transparent;
   color: red;
 }
+
 
 .split {
   height: 100%;
@@ -25,8 +26,8 @@ mark {
 
   .logo {
     border-left-width: 10px;
-    float: right;
-    padding-top: 150px;
+    float: center;
+    padding-top: 50px;
   }
 
   .left {
@@ -59,7 +60,7 @@ mark {
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 60%;
+    width: 80%;
     height: 40%;
 }
 

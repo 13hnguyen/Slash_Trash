@@ -1,11 +1,5 @@
 <?php
-    $host = "localhost:3306";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "SLASHTRASH";
-
-    // Create connection
-    $conn = new PDO('mysql:host='.$host.';dbname='.$dbname, $dbusername, $dbpassword);
+    require_once '../utils/connect_database.php';
 
     // Check connection
     if(!$conn) 
@@ -17,23 +11,23 @@
         $table = filter_input(INPUT_POST, 'table');
         $input_id = filter_input(INPUT_POST, 'input_id');
         $table_id = "";
-        $table = strtolower($table);
+        $table = strtoupper($table);
 
         switch ($table) 
         {
-            case 'customer':
+            case 'CUSTOMER':
                 $table_id = "Cust_Id";
                 break;
-            case 'establishment_admin':
+            case 'ESTABLISHMENT_ADMIN':
                 $table_id = "Admin_Id";
                 break;
-            case 'establishment':
+            case 'ESTABLISHMENT':
                 $table_id = "Est_Id";
                 break;   
-            case 'orders':
+            case 'ORDERS':
                 $table_id = "Order_Id";
                 break;
-            case 'reusable_item':
+            case 'REUSABLE_ITEM':
                 $table_id = "Item_Id";
                 break;
         }

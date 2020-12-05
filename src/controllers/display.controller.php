@@ -1,11 +1,5 @@
 <?php
-    $host = "localhost:3306";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "SLASHTRASH";
-
-    // Create connection
-    $conn = new PDO('mysql:host='.$host.';dbname='.$dbname, $dbusername, $dbpassword);
+    require_once '../utils/connect_database.php';
 
     // Check connection
     if(!$conn) 
@@ -15,13 +9,13 @@
     else 
     {
         $table_name = filter_input(INPUT_POST, 'table');
-        $table_name = strtolower($table_name);
+        $table_name = strtoupper($table_name);
         $rows = array();
 
-        echo "<br>".strtoupper($table_name)."<br>";
+        echo "<br>".$table_name."<br>";
         switch ($table_name)
         {
-            case 'customer':
+            case "CUSTOMER":
                 $rows = array(
                     0 => "Cust_Id",
                     1 => "CName",
@@ -30,7 +24,7 @@
                     4 => "Age"
                 );
                 break;
-            case 'establishment_admin':
+            case 'ESTABLISHMENT_ADMIN':
                 $rows = array(
                     0 => "Admin_Id",
                     1 => "EAName",
@@ -39,26 +33,26 @@
                     4 => "Est_Id"
                 );
                 break;  
-            case 'establishment':
+            case 'ESTABLISHMENT':
                 $rows = array(
                     0 => "Est_Id",
                     1 => "EName",
-                    2 => "Address",
+                    2 => "Est_Address",
                     3 => "Waste_Pts",
                     4 => "Type"
                 );
                 break; 
-            case 'orders':
+            case 'ORDERS':
                 $rows = array(
                     0 => "Order_Id",
                     1 => "Pts",
-                    2 => "Date",
+                    2 => "Trans_Date",
                     3 => "Cust_Id",
                     4 => "Item_Id",
                     5 => "Est_Id"
                 );
                 break;
-            case 'reusable_item':
+            case 'REUSABLE_ITEM':
                 $rows = array(
                     0 => "Item_Id",
                     1 => "Category",
@@ -67,26 +61,26 @@
                     4 => "Cust_Id"
                 );
                 break;
-            case 'visits':
+            case 'VISITS':
                 $rows = array(
                     0 => "Est_Id",
                     1 => "Cust_Id"
                 );
                 break;
         }
-
         $stmt = $conn->query("SELECT * FROM $table_name");
-        $data = $stmt->fetchAll();
+        if ($stmt)
+        {$data = $stmt->fetchAll();
         if($data)
         {
             echo '<table border="1">';
             echo '<tr>';
-            // attribute names
+            // attribute/column names
             foreach ($rows as $rowName)
             {
                 echo '<td>' . $rowName . '</td>';
             }
-            // table data
+            // table data / records / tuples
             foreach ($data as $row) 
             {
                 echo '<tr>';
@@ -102,7 +96,7 @@
         {
             echo "No Records Available";
             die(); 
-        }
-    }
-    echo '<p><a href="javascript:history.go(-1)" title="return">&laquo; Return to Slash-Trash Homepage</a></p>';    
+        }}
+    }    
+    echo '<p><a href="javascript:history.go(-1)" title="return">&laquo; Return to Slash-Trash Homepage</a></p>';
 ?>

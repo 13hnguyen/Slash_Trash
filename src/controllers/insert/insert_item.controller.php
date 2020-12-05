@@ -1,11 +1,5 @@
 <?php
-    $host = "localhost:3306";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "SLASHTRASH";
-
-    // Create connection
-    $conn = new PDO('mysql:host='.$host.';dbname='.$dbname, $dbusername, $dbpassword);
+    require_once '../../utils/connect_database.php';
 
     // Check connection
     if(!$conn) 
@@ -14,15 +8,13 @@
     }
     else 
     {
-        // Change to Reusable Item values
-        /*
+        $Item_Id = filter_input(INPUT_POST, 'Item_Id');
+        $IName = filter_input(INPUT_POST, 'IName');
+        $Pt_Val = filter_input(INPUT_POST, 'Pt_Val');
+        $Category = filter_input(INPUT_POST, 'Category');
         $Cust_Id = filter_input(INPUT_POST, 'Cust_Id');
-        $CName = filter_input(INPUT_POST, 'CName');
-        $Cust_Pts = filter_input(INPUT_POST, 'Cust_Pts');
-        $CEmail = filter_input(INPUT_POST, 'CEmail');
-        $Age = filter_input(INPUT_POST, 'Age');
 
-        if($query = "INSERT INTO customer (Cust_Id, CName, Cust_Pts, CEmail, Age) VALUES (:Cust_Id, :CName, :Cust_Pts, :CEmail, :Age)")
+        if($query = "INSERT INTO REUSABLE_ITEM(Item_Id, Category, Pt_Val, IName, Cust_Id) VALUES (:Item_Id, :Category, :Pt_Val, :IName, :Cust_Id)")
         {    
             if($query==null)
             {      
@@ -32,7 +24,7 @@
             else
             {
                 $stmt = $conn->prepare($query);  
-                $stmt->execute(array(':Cust_Id' => $Cust_Id, ':CName' => $CName, ':Cust_Pts' => $Cust_Pts, ':CEmail' => $CEmail, ':Age' => $Age));
+                $stmt->execute(array(':Item_Id' => $Item_Id, ':Category' => $Category, ':Pt_Val' => $Pt_Val, ':IName' => $IName, ':Cust_Id' => $Cust_Id));
                 $rows = $stmt->fetchALL(PDO::FETCH_ASSOC);
                 if($stmt)
                     echo 'New record inserted successfully.';
@@ -42,7 +34,6 @@
                 }
             }
         }
-        */
     }
     echo '<p><a href="javascript:history.go(-1)" title="return">&laquo; Return to Slash-Trash Homepage</a></p>';    
 ?>

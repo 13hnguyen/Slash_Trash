@@ -1,11 +1,5 @@
 <?php
-    $host = "localhost:3306";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "SLASHTRASH";
-
-    // Create connection
-    $conn = new PDO('mysql:host='.$host.';dbname='.$dbname, $dbusername, $dbpassword);
+    require_once '../../utils/connect_database.php';
 
     // Check connection
     if(!$conn) 
@@ -14,15 +8,14 @@
     }
     else 
     {
-        // Change to Order values
-        /*
+        $Order_Id = filter_input(INPUT_POST, 'Order_Id');
+        $Pts = filter_input(INPUT_POST, 'Pts');
+        $Trans_Date = filter_input(INPUT_POST, 'Trans_Date');
         $Cust_Id = filter_input(INPUT_POST, 'Cust_Id');
-        $CName = filter_input(INPUT_POST, 'CName');
-        $Cust_Pts = filter_input(INPUT_POST, 'Cust_Pts');
-        $CEmail = filter_input(INPUT_POST, 'CEmail');
-        $Age = filter_input(INPUT_POST, 'Age');
+        $Item_Id = filter_input(INPUT_POST, 'Item_Id');
+        $Est_Id = filter_input(INPUT_POST, 'Est_Id');
 
-        if($query = "INSERT INTO orders (Cust_Id, CName, Cust_Pts, CEmail, Age) VALUES (:Cust_Id, :CName, :Cust_Pts, :CEmail, :Age)")
+        if($query = "INSERT INTO ORDERS (Order_Id, Pts, Trans_Date, Cust_Id, Item_Id, Est_Id) VALUES (:Order_Id, :Pts, :Trans_Date, :Cust_Id, :Item_Id, :Est_Id)")
         {    
             if($query==null)
             {      
@@ -32,7 +25,7 @@
             else
             {
                 $stmt = $conn->prepare($query);  
-                $stmt->execute(array(':Cust_Id' => $Cust_Id, ':CName' => $CName, ':Cust_Pts' => $Cust_Pts, ':CEmail' => $CEmail, ':Age' => $Age));
+                $stmt->execute(array(':Order_Id' => $Order_Id, ':Pts' => $Pts, ':Trans_Date' => $Trans_Date, ':Cust_Id' => $Cust_Id, ':Item_Id' => $Item_Id, ':Est_Id' => $Est_Id));
                 $rows = $stmt->fetchALL(PDO::FETCH_ASSOC);
                 if($stmt)
                     echo 'New record inserted successfully.';
@@ -42,7 +35,9 @@
                 }
             }
         }
-        */
+
+       
+
     }
     echo '<p><a href="javascript:history.go(-1)" title="return">&laquo; Return to Slash-Trash Homepage</a></p>';    
 ?>
