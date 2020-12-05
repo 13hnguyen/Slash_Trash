@@ -1,11 +1,5 @@
 <?php
-    $host = "localhost:3306";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "SLASHTRASH";
-
-    // Create connection
-    $conn = new PDO('mysql:host='.$host.';dbname='.$dbname, $dbusername, $dbpassword);
+    require_once '../../utils/connect_database.php';
 
     // Check connection
     if(!$conn) 
@@ -14,12 +8,13 @@
     }
     else 
     {
-        // Change to Order values
-        /*
-        $Cust_Id = filter_input(INPUT_POST, 'Cust_Id');
-        $Cust_Pts = filter_input(INPUT_POST, 'Cust_Pts');
+        // Change to Establishment values
 
-        if($query = "UPDATE orders SET Cust_Pts = :Cust_Pts WHERE Cust_Id = :Cust_Id")
+        $Order_Id = filter_input(INPUT_POST, 'Order_Id');
+        $Pts = filter_input(INPUT_POST, 'Pts');
+        $Item_Id = filter_input(INPUT_POST, 'Item_Id');
+
+        if($query = "UPDATE ORDERS SET Pts = :Pts, Item_Id = :Item_Id WHERE Order_Id = :Order_Id")
         {    
             if($query==null)
             {      
@@ -29,7 +24,7 @@
             else
             {
                 $stmt = $conn->prepare($query);  
-                $stmt->execute(array(':Cust_Id' => $Cust_Id, ':Cust_Pts' => $Cust_Pts));
+                $stmt->execute(array(':Order_Id' => $Order_Id, ':Pts' => $Pts, ':Item_Id' => $Item_Id));
                 $rows = $stmt->fetchALL(PDO::FETCH_ASSOC);
                 if($stmt)
                     echo 'Record updated successfully.';
@@ -39,7 +34,7 @@
                 }
             }
         }
-        */
+
     }
     echo '<p><a href="javascript:history.go(-1)" title="return">&laquo; Return to Slash-Trash Homepage</a></p>';    
 ?>

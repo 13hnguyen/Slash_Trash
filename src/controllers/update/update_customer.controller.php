@@ -1,11 +1,5 @@
 <?php
-    $host = "localhost:3306";
-    $dbusername = "root";
-    $dbpassword = "";
-    $dbname = "SLASHTRASH";
-
-    // Create connection
-    $conn = new PDO('mysql:host='.$host.';dbname='.$dbname, $dbusername, $dbpassword);
+    require_once '../../utils/connect_database.php';
 
     // Check connection
     if(!$conn) 
@@ -17,7 +11,7 @@
         $Cust_Id = filter_input(INPUT_POST, 'Cust_Id');
         $Cust_Pts = filter_input(INPUT_POST, 'Cust_Pts');
 
-        if($query = "UPDATE customer SET Cust_Pts = :Cust_Pts WHERE Cust_Id = :Cust_Id")
+        if($query = "UPDATE CUSTOMER SET Cust_Pts = :Cust_Pts WHERE Cust_Id = :Cust_Id")
         {    
             if($query==null)
             {      
